@@ -16,16 +16,50 @@ Fayer is Dual licensed under the MIT or GPL Version 2 licenses..
 * Has `fayer.notOn` function to prevent code from being fired on few particular pages on website.
 * Expose single global object `fayer`
 
-## Usage Guide
+## Getting Started with fayer
+
+1. Set unique identifier string for all pages of your website on body tag's 'id' attribute.
+
+		<body id="page-home">
+		<body id="page-contact">
+		<body id="page-about">
+	
+2. Register and fire functions
+
+	Inside your JavaScript you can write following code to fire functions on respective pages.
+	
+	For homepage (page-home):
+		fayer.on("page-home", function () {
+			// code for homepage goes here
+		})
+	
+	For About and Contact page (page-about, page-contact):
+		fayer.on(["page-about", "page-contact"], function () {
+			// code for about and contact page goes here
+		})
+
+	Not for about page but for all other pages on website:
+		fayer.notOn("page-about", function () {
+			// code for about and contact page goes here
+		})
+
+3. Done!! Read Functions section below for more customization.
+
+## Functions
 
 ###Intialize (Optional)###
 
 Use this function to instruct `fayer` to find unique page string.
 
-`fayer.init(func/attr)` 
+`fayer.init(func)`
 
 func (Function): This function must return string.
+
+`fayer.init(attr)`  
+
 attr (String): If this is string then, fayer will search identifier string at body[function]
+
+`fayer.init()`
 
 If no parameter is passed then `fayer` will search for identifier string at body[id].
 
