@@ -29,16 +29,19 @@ Fayer is Dual licensed under the MIT or GPL Version 2 licenses..
 	Inside your JavaScript you can write following code to fire functions on respective pages.
 	
 	For homepage (page-home):
+	
 		fayer.on("page-home", function () {
 			// code for homepage goes here
 		})
 	
 	For About and Contact page (page-about, page-contact):
+	
 		fayer.on(["page-about", "page-contact"], function () {
 			// code for about and contact page goes here
 		})
 
 	Not for about page but for all other pages on website:
+	
 		fayer.notOn("page-about", function () {
 			// code for about and contact page goes here
 		})
