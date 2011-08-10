@@ -50,7 +50,7 @@ Fayer is Dual licensed under the MIT or GPL Version 2 licenses..
 
 ## Functions
 
-###Intialize (Optional)###
+###Initialize###
 
 Use this function to instruct `fayer` to find unique page string.
 
