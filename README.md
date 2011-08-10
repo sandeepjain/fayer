@@ -1,12 +1,12 @@
 # Fayer
 
-Fires only required functions on particular page, thus removing any unnecessary function calls.
+Purpose of this library is to help web developer put all JavaScript code in single file and then use 'fayer' to fire only required code (functions) on particular page.
 
 * Sources: <http://github.com/sandeepjain/fayer>
 * Author: [Sandeep Jain](http://jsvrocks.com/)
 * Size: 0.7kb (Minified version)
 
-Fayer is Dual licensed under the MIT or GPL Version 2 licenses..  
+Fayer is Dual licensed under the MIT or GPL Version 2 licenses.  
 
 ## Features
 
