@@ -1,9 +1,20 @@
 # Fayer
 
+Fires only required functions on particular page, thus removing any unnecessary function calls.
+
 * Sources: <http://github.com/sandeepjain/fayer>
 * Author: [Sandeep Jain](http://jsvrocks.com/)
+* Size: 0.7kb (Minified version)
 
-Fayer is provided under Dual licensed under the MIT or GPL Version 2 licenses..  
+Fayer is Dual licensed under the MIT or GPL Version 2 licenses..  
+
+## Features
+
+* Simple and easy to understand code, with small footprint (Just 0.7kb when minified).
+* Doesn't require jQuery or any other JavaScript library
+* Makes it easy to push all JavaScript code in single file.
+* Has `fayer.notOn` function to prevent code from being fired on few particular pages on website.
+* Expose single global object `fayer`
 
 ## Usage Guide
 
@@ -21,6 +32,7 @@ If no parameter is passed then `fayer` will search for identifier string at body
 ###Fire functions###
 
 `fayer.on(page, func)`
+
 `fayer.notOn(page, func)`
 
 page (Array/String): Array/String containing unique page identifiers.
@@ -36,7 +48,10 @@ page (String): Unique page identifier.
 
 page (Array/String): Unique page identifier. 
 
+## Todo
 
+* RegEx based identifier matching.
+* URL based identifier matching.
 
 ## Changelog
 
