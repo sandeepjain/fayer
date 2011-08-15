@@ -46,6 +46,17 @@ Fayer is Dual licensed under the MIT or GPL Version 2 licenses.
 			// code for about and contact page goes here
 		})
 
+  Mass assign functions (works for `on` and `notOn`):
+
+    fayer.on({
+      'home': function () {
+        // code for home page
+      },
+      'about': function () {
+        // code for about page
+      }
+    });
+
 3. Done!! Read Functions section below for more customization.
 
 ## Functions
