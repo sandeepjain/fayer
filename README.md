@@ -49,14 +49,14 @@ Fayer is Dual licensed under the MIT or GPL Version 2 licenses.
 
 	Alternatively you even have mass assign functions (works for `on` and `notOn`):
 
-	fayer.on({
-		'page-home': function () {
-			// code for home page goes here
-		},
-		'page-about': function () {
-			// code for about page goes here
-		}
-	});
+		fayer.on({
+			'page-home': function () {
+				// code for home page goes here
+			},
+			'page-about': function () {
+				// code for about page goes here
+			}
+		});
 
 3. Done!! Read functions section below for more customization.
 
