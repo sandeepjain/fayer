@@ -27,7 +27,10 @@
 				}
 
 				return -1;
-			}
+			},
+            isArray : function (elem) {
+                return elem.constructor == (new Array).constructor;
+            }
 		};
 	
 	function _fayer () {
@@ -57,12 +60,30 @@
 			if (typeof page === "function") {
 				page();
 			}
+            // if argument is an object
+            if (typeof page === "object" && !hlper.isArray(page)) {
+                for (var fn in page) {
+                    if ( page.hasOwnProperty(fn) ) {
+                        self.on( fn, page[fn] );
+                    }
+                }
+                return self;
+            }
 			if (self.isIn(page) && typeof func === "function") {
 				func();
 			}
 			return self;
 		};
 		self.notOn  = function (page, func) {
+            // if argument is an object
+            if (typeof page === "object" && !hlper.isArray(page)) {
+                for (var fn in page) {
+                    if ( page.hasOwnProperty(fn) ) {
+                        self.notOn( fn, page[fn] );
+                    }
+                }
+                return self;
+            }
 			!self.isIn(page) && self.on(func);
 			return self;
 		};
