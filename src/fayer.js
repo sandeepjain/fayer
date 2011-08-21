@@ -1,5 +1,5 @@
 /**
- * Fayer.js v0.1
+ * Fayer.js v0.2
  * 
  * Author : Sandeep Jain
  * Author Webiste: http://www.jsvrocks.com/
@@ -7,30 +7,27 @@
  * Copyright 2011, Sandeep Jain
  * Dual licensed under the MIT or GPL Version 2 licenses.
  */
-(function( window, undefined ) {
-	var location = window.location,
-		document = window.document,
+(function(window, undefined) {
+	var document = window.document,
 		tracker = {
 			page : '',
 			isInitialized : false
 		},
 		hlper = {
 			inArray : function (elem, array) {
-				if ( array.indexOf ) {
-					return array.indexOf( elem );
+				if (array.indexOf) {
+					return array.indexOf(elem);
 				}
-
-				for ( var i = 0, length = array.length; i < length; i++ ) {
-					if ( array[ i ] === elem ) {
+				for (var i = 0, length = array.length; i < length; i++) {
+					if (array[ i ] === elem) {
 						return i;
 					}
 				}
-
 				return -1;
 			},
-            isArray : function (elem) {
-                return elem.constructor == (new Array).constructor;
-            }
+			isArray : function (elem) {
+				return elem.constructor == (new Array).constructor;
+			}
 		};
 	
 	function _fayer () {
@@ -42,7 +39,7 @@
 			var queryFunc = (attrib !== undefined && typeof attrib === "function") ?
 				attrib :
 				function () {
-					// If no attribute specified then default to attribute id
+					// If no attribute specified then default to attribute 'id'
 					attrib = (typeof attrib === "string") && attrib !== '' ? attrib : 'id';
 					var val = document.body.getAttribute(attrib);
 					return val === null ?  undefined : val;
@@ -56,35 +53,28 @@
 				self.init();
 				tracker.isInitialized = true;
 			}
-			// Check if only function is passed as parameter
 			if (typeof page === "function") {
+				// Check if only function is passed as parameter
 				page();
-			}
-            // if argument is an object
-            if (typeof page === "object" && !hlper.isArray(page)) {
-                for (var fn in page) {
-                    if ( page.hasOwnProperty(fn) ) {
-                        self.on( fn, page[fn] );
-                    }
-                }
-                return self;
-            }
-			if (self.isIn(page) && typeof func === "function") {
+			} else if (typeof page === "object" && !hlper.isArray(page)) {
+				// if argument is an object
+				for (var fn in page) {
+					page.hasOwnProperty(fn) && self.on(fn, page[fn]);
+				}
+			} else if (self.isIn(page) && typeof func === "function") {
 				func();
 			}
 			return self;
 		};
 		self.notOn  = function (page, func) {
-            // if argument is an object
-            if (typeof page === "object" && !hlper.isArray(page)) {
-                for (var fn in page) {
-                    if ( page.hasOwnProperty(fn) ) {
-                        self.notOn( fn, page[fn] );
-                    }
-                }
-                return self;
-            }
-			!self.isIn(page) && self.on(func);
+			// if argument is an object
+			if (typeof page === "object" && !hlper.isArray(page)) {
+				for (var fn in page) {
+					page.hasOwnProperty(fn) && self.notOn(fn, page[fn]);
+				}
+			} else {
+				!self.isIn(page) && self.on(func);
+			}
 			return self;
 		};
 		self.is  = function (page) {

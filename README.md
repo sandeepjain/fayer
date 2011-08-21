@@ -3,8 +3,9 @@
 Purpose of this library is to help web developer put all JavaScript code in single file and then use 'fayer' to fire only required code (functions) on particular page.
 
 * Sources: <http://github.com/sandeepjain/fayer>
-* Author: [Sandeep Jain](http://jsvrocks.com/)
-* Size: 0.7kb (Minified version)
+* Author: [Sandeep Jain](http://jsvrocks.com/) | Twitter : [@sandeepjain](http://twitter.com/#!/sandeepjain)
+* Contributors: [Stephen](https://github.com/wyattdanger)
+* Size: 0.93kb (Minified version)
 
 Fayer is Dual licensed under the MIT or GPL Version 2 licenses.  
 
@@ -46,18 +47,18 @@ Fayer is Dual licensed under the MIT or GPL Version 2 licenses.
 			// code for about and contact page goes here
 		})
 
-  Mass assign functions (works for `on` and `notOn`):
+	Alternatively you even have mass assign functions (works for `on` and `notOn`):
 
-    fayer.on({
-      'home': function () {
-        // code for home page
-      },
-      'about': function () {
-        // code for about page
-      }
-    });
+	fayer.on({
+		'page-home': function () {
+			// code for home page goes here
+		},
+		'page-about': function () {
+			// code for about page goes here
+		}
+	});
 
-3. Done!! Read Functions section below for more customization.
+3. Done!! Read functions section below for more customization.
 
 ## Functions
 
@@ -86,6 +87,14 @@ If no parameter is passed then `fayer` will search for identifier string at body
 page (Array/String): Array/String containing unique page identifiers.
 func (Function): Function to be fired if condition is satisfied.
 
+Mass assign functions:
+
+`fayer.on(obj)`
+
+`fayer.notOn(obj)`
+
+obj: id:function key value pair object
+
 ###Other Helpful functions###
 
 `fayer.is(page)`
@@ -100,7 +109,12 @@ page (Array/String): Unique page identifier.
 
 * RegEx based identifier matching.
 * URL based identifier matching.
+* Ender integration code.
 
 ## Changelog
+
+### v0.2 · *2011-08-21*
+
+- Added ability to pass in a hash of ids/functions to .on and .notOn
 
 ### v0.1 · *2011-08-10*
