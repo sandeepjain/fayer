@@ -5,13 +5,13 @@ Purpose of this library is to help web developer put all JavaScript code in sing
 * Sources: <http://github.com/sandeepjain/fayer>
 * Author: [Sandeep Jain](http://jsvrocks.com/) | Twitter : [@sandeepjain](http://twitter.com/#!/sandeepjain)
 * Contributors: [Stephen](https://github.com/wyattdanger)
-* Size: 0.93kb (Minified version)
+* Size: 0.93kb (Minified version) | 0.47kb (gzipped)
 
 Fayer is Dual licensed under the MIT or GPL Version 2 licenses.  
 
 ## Features
 
-* Simple and easy to understand code, with small footprint (Just 0.7kb when minified).
+* Simple and easy to understand code, with small footprint (Just 0.93kb when minified).
 * Doesn't require jQuery or any other JavaScript library
 * Makes it easy to push all JavaScript code in single file.
 * Has `fayer.notOn` function to prevent code from being fired on few particular pages on website.
@@ -24,6 +24,7 @@ Fayer is Dual licensed under the MIT or GPL Version 2 licenses.
 		<body id="page-home">
 		<body id="page-contact">
 		<body id="page-about">
+		<body id="page-catalog">
 	
 2. Register and fire functions
 
@@ -44,7 +45,13 @@ Fayer is Dual licensed under the MIT or GPL Version 2 licenses.
 	Not for about page but for all other pages on website:
 	
 		fayer.notOn("page-about", function () {
-			// code for about and contact page goes here
+			// code for about, contact and catalog page goes here
+		})
+	
+	[RegExp based matching] For contact and catalog page:
+	
+		fayer.on(/page-c*/, function () {
+			// code for contact and catalog page goes here
 		})
 
 	Alternatively you even have mass assign functions (works for `on` and `notOn`):
@@ -84,7 +91,7 @@ If no parameter is passed then `fayer` will search for identifier string at body
 
 `fayer.notOn(page, func)`
 
-page (Array/String): Array/String containing unique page identifiers.
+page (Array/String/RegExp): Array/String/Regular Expression containing unique page identifiers.
 func (Function): Function to be fired if condition is satisfied.
 
 Mass assign functions:
@@ -103,15 +110,22 @@ page (String): Unique page identifier.
 
 `fayer.isIn(page)`
 
-page (Array/String): Unique page identifier. 
+page (Array/String/RegExp): Unique page identifier. 
 
 ## Todo
 
-* RegEx based identifier matching.
+* [DONE v0.3] RegEx based identifier matching.
 * URL based identifier matching.
 * Ender integration code.
 
 ## Changelog
+
+### v0.3 · *2011-08-23*
+
+- RegEx based identifier matching functionality.
+- Removed un-reliable use of typeof operator and replaced it with `Object.prototype.toString` function.
+- Tested it across FF, Chrome, IE.
+- Even after adding all this new features, file size is same.
 
 ### v0.2 · *2011-08-21*
 

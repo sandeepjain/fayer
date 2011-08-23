@@ -3,7 +3,8 @@
  * 
  * Author : Sandeep Jain
  * Author Webiste: http://www.jsvrocks.com/
- *
+ * GitHub: https://github.com/sandeepjain/fayer
+ * 
  * Copyright 2011, Sandeep Jain
  * Dual licensed under the MIT or GPL Version 2 licenses.
  */
@@ -13,22 +14,29 @@
 			page : '',
 			isInitialized : false
 		},
-		hlper = {
-			inArray : function (elem, array) {
-				if (array.indexOf) {
-					return array.indexOf(elem);
-				}
-				for (var i = 0, length = array.length; i < length; i++) {
-					if (array[ i ] === elem) {
-						return i;
-					}
-				}
-				return -1;
-			},
-			isArray : function (elem) {
-				return elem.constructor == (new Array).constructor;
+		// Minification variable
+		funcTypeStr = 'Function',
+		objTypeStr = 'Object';
+		
+	// helper functions
+	
+	// check if element exists in array
+	function inArray(elem, array) {
+		if (array.indexOf) {
+			return array.indexOf(elem);
+		}
+		for (var i = 0, length = array.length; i < length; i++) {
+			if (array[i] === elem) {
+				return i;
 			}
-		};
+		}
+		return -1;
+	}
+	
+	// reliable check of variable type
+	function isTypeOf (type, obj) {
+		return obj !== undefined && obj !== null && Object.prototype.toString.call(obj).slice(8, -1) === type;
+	}
 	
 	function _fayer () {
 		var self = this;
@@ -36,11 +44,11 @@
 			return self.detectPage(attrib);
 		};
 		self.detectPage  = function (attrib) {
-			var queryFunc = (attrib !== undefined && typeof attrib === "function") ?
+			var queryFunc = isTypeOf(funcTypeStr, attrib) ?
 				attrib :
 				function () {
 					// If no attribute specified then default to attribute 'id'
-					attrib = (typeof attrib === "string") && attrib !== '' ? attrib : 'id';
+					attrib = isTypeOf('String', attrib) && attrib !== '' ? attrib : 'id';
 					var val = document.body.getAttribute(attrib);
 					return val === null ?  undefined : val;
 				};
@@ -53,22 +61,22 @@
 				self.init();
 				tracker.isInitialized = true;
 			}
-			if (typeof page === "function") {
+			if (isTypeOf(funcTypeStr, page)) {
 				// Check if only function is passed as parameter
 				page();
-			} else if (typeof page === "object" && !hlper.isArray(page)) {
+			} else if (isTypeOf(objTypeStr, page)) {
 				// if argument is an object
 				for (var fn in page) {
 					page.hasOwnProperty(fn) && self.on(fn, page[fn]);
 				}
-			} else if (self.isIn(page) && typeof func === "function") {
+			} else if (self.isIn(page) && isTypeOf(funcTypeStr, func)) {
 				func();
 			}
 			return self;
 		};
 		self.notOn  = function (page, func) {
 			// if argument is an object
-			if (typeof page === "object" && !hlper.isArray(page)) {
+			if (isTypeOf(objTypeStr, page)) {
 				for (var fn in page) {
 					page.hasOwnProperty(fn) && self.notOn(fn, page[fn]);
 				}
@@ -81,9 +89,11 @@
 			return (page === tracker.page);
 		};
 		self.isIn  = function (page) {
-			return self.is(page) ?
-				true :
-				hlper.inArray(tracker.page, page) !== -1;
+			return isTypeOf('RegExp', page) 
+				? page.test(tracker.page)
+				: self.is(page) 
+					? true
+					: inArray(tracker.page, page) !== -1;
 		};
 	};
 	
