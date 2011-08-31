@@ -5,9 +5,10 @@
 
   <title>Fayer | Kick-off your page specific JavaScript</title>
   <link rel="stylesheet" href="http://twitter.github.com/bootstrap/assets/css/bootstrap-1.1.1.min.css">
+  <link rel="stylesheet" href="http://twitter.github.com/bootstrap/assets/js/google-code-prettify/prettify.css" type="text/css" media="screen" title="no title" charset="utf-8">
 </head>
 
-<body style="padding-top: 40px;">
+<body style="padding-top: 40px;" onload="prettyPrint()">
   <a href="http://github.com/sandeepjain/fayer"><img style="position: absolute; top: 40px; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
     <div class="topbar">
       <div class="fill">
@@ -23,7 +24,7 @@
                 <li><a href="https://github.com/sandeepjain/fayer/blob/master/src/fayer.min.js">Production</a></li>
                 <li><a href="https://raw.github.com/sandeepjain/fayer/master/src/fayer.js">Dev</a></li>
                 <li class="divider"></li>
-                <li><a href="http://github.com/sandeepjain/fayer/zipball/master">Complete</a></li>
+                <li><a href="http://github.com/sandeepjain/fayer/zipball/master">Project (from GitHub)</a></li>
               </ul>
             </li>
           </ul>
@@ -31,14 +32,14 @@
       </div>
     </div>
   <div class="container">
-    <h1><a href="http://github.com/sandeepjain/fayer">Fayer</a>
-      <small>by <a href="http://github.com/sandeepjain">sandeepjain</a></small></h1>
+      <h1 style="margin-top: 10px"><a href="http://github.com/sandeepjain/fayer">Fayer</a>
+        <small>- easily kick-off your page specific Javascript.</small></h1>
 
-    <p>
-      Easily kick-off your page specific Javascript.
-    </p>
-
-    <h2>Fearures</h2>
+      <blockquote>by <a href="http://github.com/sandeepjain">Sandeep Jain</a> </blockquote>
+      <section id="featurs">
+      <div class="page-header">
+    <h2>Features</h2>
+    </div>
     <p>Purpose of this library is to help web developer put all JavaScript code in single file and then use 'fayer' to fire only required code (functions) on particular page.</p>
     <ul>
 <li>Simple and easy to understand code, with small footprint (Just 0.94kb when minified).</li>
@@ -49,69 +50,144 @@
 </li>
 <li>Can now be integrated with <a href="http://ender.no.de/">ender</a> using command <code>ender add Fayer</code>
 </li>
-</ul>
+</ul></section>
+<div class="page-header">
+<h2>Getting Started with fayer <small> ... ready steady go!</small></h2>
+</div>
+<ol>
+<li>
+<p>Set unique identifier string for all pages of your website on body tag's 'id' attribute.</p>
+
+<pre class="prettyprint">&lt;body id="page-home"&gt;
+&lt;body id="page-contact"&gt;
+&lt;body id="page-about"&gt;
+&lt;body id="page-catalog"&gt;
+</pre>
+</li>
+<li>
+<p>Register and fire functions</p>
+
+<p>Inside your JavaScript you can write following code to fire functions on respective pages.</p>
+
+<p>For homepage (page-home):</p>
+
+<pre class="prettyprint">fayer.on("page-home", function () {
+    // code for homepage goes here
+})
+</pre>
+
+<p>For About and Contact page (page-about, page-contact):</p>
+
+<pre class="prettyprint">fayer.on(["page-about", "page-contact"], function () {
+    // code for about and contact page goes here
+})
+</pre class="prettyprint">
+
+<p>Not for about page but for all other pages on website:</p>
+
+<pre class="prettyprint">fayer.notOn("page-about", function () {
+    // code for about, contact and catalog page goes here
+})
+</pre>
+
+<p>[RegExp based matching] For contact and catalog page:</p>
+
+<pre class="prettyprint">fayer.on(/page-c*/, function () {
+    // code for contact and catalog page goes here
+})
+</pre>
+
+<p>Alternatively you even have mass assign functions (works for <code>on</code> and <code>notOn</code>):</p>
+
+<pre class="prettyprint">fayer.on({
+    'page-home': function () {
+        // code for home page goes here
+    },
+    'page-about': function () {
+        // code for about page goes here
+    }
+});
+</pre>
+</li>
+<li><p>Done!! Read functions section below for more customization.</p></li>
+</ol>
+<div class="page-header">
+<h2>Functions <small> ...all api functions</small></h2>
+</div>
+
+<h3>Initialize</h3>
+
+<p>Use this function to instruct <code>fayer</code> to find unique page string.</p>
+
+<p><code>fayer.init(func)</code></p>
+
+<p>func (Function): This function must return string.</p>
+
+<p><code>fayer.init(attr)</code>  </p>
+
+<p>attr (String): If this is string then, fayer will search identifier string at body[function]</p>
+
+<p><code>fayer.init()</code></p>
+
+<p>If no parameter is passed then <code>fayer</code> will search for identifier string at body[id].</p>
+
+<h3>Fire functions</h3>
+
+<p><code>fayer.on(page, func)</code></p>
+
+<p><code>fayer.notOn(page, func)</code></p>
+
+<p>page (Array/String/RegExp): Array/String/Regular Expression containing unique page identifiers.</p>
+<p>func (Function): Function to be fired if condition is satisfied.</p>
+
+<h3>Mass assign functions:</h3>
+
+<p><code>fayer.on(obj)</code></p>
+
+<p><code>fayer.notOn(obj)</code></p>
+
+<p>obj: id:function key value pair object</p>
+
+<h3>Other Helpful functions</h3>
+
+<p><code>fayer.is(page)</code></p>
+
+<p>page (String): Unique page identifier.</p>
+
+<p><code>fayer.isIn(page)</code></p>
+
+<p>page (Array/String/RegExp): Unique page identifier. </p>
+
+<div class="page-header">
 <h2>License</h2>
+</div>
 <p>Fayer is Dual licensed under the MIT or GPL Version 2 licenses. </p>
-<h2>Authors</h2>
-<p>Sandeep Jain : <a href="http://www.jsvrocks.com">Personal Site</a> | <a href="https://github.com/sandeepjain">Github</a> | <a href="http://twitter.com/sandeepjain">Twitter</a>
-</p>
-<h2>Contact</h2>
-<p><a href="http://jsvrocks.com">Sandeep Jain</a>
+<!-- <h2>Author</h2> -->
+<!-- <p>Sandeep Jain : <small><a href="http://www.jsvrocks.com">Personal Site</a> | <a href="https://github.com/sandeepjain">Github</a> | <a href="http://twitter.com/sandeepjain">Twitter</a></s> -->
+<!-- </p> -->
+<!-- <h2>Contact</h2> -->
+<!-- <p><a href="http://jsvrocks.com">Sandeep Jain</a> -->
 <br/>      </p>
 
-
-    <h2>Download</h2>
+<div class="page-header">
+    <h2>Source &amp; Download</h2>
+    </div>
     <p>
-      You can download this project in either
+      Grab project source in either 
       <a class="btn primary" href="http://github.com/sandeepjain/fayer/zipball/master">zip</a> or
       <a class="btn" href="http://github.com/sandeepjain/fayer/tarball/master">tar</a> formats.
     </p>
-    <p>You can also clone the project with <a href="http://git-scm.com">Git</a>
+    <p>Clone this project with <a href="http://git-scm.com">Git</a>
       by running:
-      <pre>$ git clone git://github.com/sandeepjain/fayer</pre>
+      <pre class="prettyprint">$ git clone git://github.com/sandeepjain/fayer</pre>
     </p>
-
-    <div class="footer">
-      get the source code on GitHub : <a href="http://github.com/sandeepjain/fayer">sandeepjain/fayer</a>
-    </div>
-
+    <footer>
+     <p>Site designed by Sandeep Jain</p>
+    </footer>
   </div>
-<script>
-(function (win, doc, undefined) {
-	var downloadMenu = doc.getElementById('downloadMenu'),
-		downloadSubmenu = doc.getElementById('downloadSubMenu');
-
-	if(downloadMenu.addEventListener) {
-		downloadMenu.addEventListener( "click", function () {
-			hideShowSubMenu(downloadSubmenu);
-		});
-	} else if (downloadMenu.attachEvent) {
-		downloadMenu.attachEvent('click', function () {
-			hideShowSubMenu(downloadSubmenu);
-		});
-	}
-	
-	function hideShowSubMenu(ele) {
-		var status = getStyle(ele,'display');
-		if (status == '' || status == 'block') {
-			ele.style.display = 'none';
-		} else {
-			ele.style.display = 'block';
-		}
-	}
-	
-	function getStyle(ele,styleProp)
-	{
-		var y;
-		if (ele.currentStyle)
-			y = x.currentStyle[styleProp];
-		else if (window.getComputedStyle)
-			y = document.defaultView.getComputedStyle(ele,null).getPropertyValue(styleProp);
-		return y;
-	}
-
-})(window, document)
-</script>
+  <script src="script.min.js" type="text/javascript" charset="utf-8"></script>
+  <script src="http://twitter.github.com/bootstrap/assets/js/google-code-prettify/prettify.js" type="text/javascript" charset="utf-8"></script>
   
+
 </body>
 </html>
