@@ -1,5 +1,5 @@
 /**
- * Fayer.js v0.2
+ * Fayer.js v0.3
  * 
  * Author : Sandeep Jain
  * Author Webiste: http://www.jsvrocks.com/
