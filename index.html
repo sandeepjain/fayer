@@ -12,7 +12,7 @@
     <div class="topbar">
       <div class="fill">
         <div class="container">
-          <h3>Fayer</31>
+          <h3>Fayer</h3>
           <ul>
             <li class="active"><a href="">Home</a></li>
           </ul>
@@ -20,8 +20,8 @@
             <li class="menu">
               <a id="downloadMenu" class="menu" href="#">Download</a>
               <ul id="downloadSubMenu" class="menu-dropdown">
-                <li><a href="https://github.com/sandeepjain/fayer/blob/master/src/fayer.min.js">Production (fayer.min.js)</a></li>
-                <li><a href="https://raw.github.com/sandeepjain/fayer/master/src/fayer.js">Dev  (fayer.js)</a></li>
+                <li><a href="https://github.com/sandeepjain/fayer/blob/master/src/fayer.min.js">Production</a></li>
+                <li><a href="https://raw.github.com/sandeepjain/fayer/master/src/fayer.js">Dev</a></li>
                 <li class="divider"></li>
                 <li><a href="http://github.com/sandeepjain/fayer/zipball/master">Complete</a></li>
               </ul>
@@ -84,7 +84,11 @@
 	if(downloadMenu.addEventListener) {
 		downloadMenu.addEventListener( "click", function () {
 			hideShowSubMenu(downloadSubmenu);
-		}, false );
+		});
+	} else if (downloadMenu.attachEvent) {
+		downloadMenu.attachEvent('click', function () {
+			hideShowSubMenu(downloadSubmenu);
+		}));
 	}
 	
 	function hideShowSubMenu(ele) {
