@@ -1,5 +1,5 @@
 /**
- * Fayer.js v1.0.4
+ * Fayer.js v1.0.4 - Ender version
  * 
  * Author : Sandeep Jain
  * Author Webiste: http://www.jsvrocks.com/
@@ -8,9 +8,8 @@
  * Copyright 2011, Sandeep Jain
  * Dual licensed under the MIT or GPL Version 2 licenses.
  */
-(function(window, undefined) {
-	var document = window.document,
-		tracker = {
+!function(context, document, undefined) {
+	var tracker = {
 			page : '',
 			isInitialized : false
 		},
@@ -101,6 +100,6 @@
 	};
 	
 	// Expose to global scope
-	window.fayer = new _fayer;
+	context['fayer'] = new _fayer;
 	
-})(window);
+}(this, document);

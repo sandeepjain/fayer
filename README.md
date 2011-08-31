@@ -4,18 +4,18 @@ Purpose of this library is to help web developer put all JavaScript code in sing
 
 * Sources: <http://github.com/sandeepjain/fayer>
 * Author: [Sandeep Jain](http://jsvrocks.com/) | Twitter : [@sandeepjain](http://twitter.com/#!/sandeepjain)
-* Contributors: [Stephen](https://github.com/wyattdanger)
-* Size: 0.93kb (Minified version) | 0.47kb (gzipped)
+* Size: 0.94kb (Minified version) | 0.48kb (gzipped)
 
 Fayer is Dual licensed under the MIT or GPL Version 2 licenses.  
 
 ## Features
 
-* Simple and easy to understand code, with small footprint (Just 0.93kb when minified).
-* Doesn't require jQuery or any other JavaScript library
+* Simple and easy to understand code, with small footprint (Just 0.94kb when minified).
+* Doesn't require jQuery or any other JavaScript library (Framework agnostic)
 * Makes it easy to push all JavaScript code in single file.
 * Has `fayer.notOn` function to prevent code from being fired on few particular pages on website.
 * Expose single global object `fayer`
+* Can be integrated with [ender](http://ender.no.de/) using command `ender add Fayer`
 
 ## Getting Started with fayer
 
@@ -112,23 +112,34 @@ page (String): Unique page identifier.
 
 page (Array/String/RegExp): Unique page identifier. 
 
+##Contributor(s)
+
+* [Stephen](https://github.com/wyattdanger) - Mass assign function
+
 ## Todo
 
-* [DONE v0.3] RegEx based identifier matching.
 * URL based identifier matching.
-* Ender integration code.
+* [DONE v1.0.3] RegEx based identifier matching.
+* [DONE v1.0.4] Ender integration code.
 
 ## Changelog
 
-### v0.3 · *2011-08-23*
+### v1.0.4 · *2011-08-31*
+
+- Added ender integration code ([integration/ender](https://github.com/sandeepjain/fayer/integration/ender))
+- Published to NPM as '[Fayer](http://search.npmjs.org/#/Fayer)'
+- Resolved bug: where string was improperly considered as Array and thus 'on' and 'notOn' functions failed.
+- Revised version numbers to 0.x to 1.0.x, as version number should always start from 1.
+
+### v1.0.3 · *2011-08-23*
 
 - RegEx based identifier matching functionality.
 - Removed un-reliable use of typeof operator and replaced it with `Object.prototype.toString` function.
 - Tested it across FF, Chrome, IE.
 - Even after adding all this new features, file size is same.
 
-### v0.2 · *2011-08-21*
+### v1.0.2 · *2011-08-21*
 
 - Added ability to pass in a hash of ids/functions to .on and .notOn
 
-### v0.1 · *2011-08-10*
+### v1.0.1 · *2011-08-10*

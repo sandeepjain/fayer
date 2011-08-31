@@ -1,0 +1,20 @@
+{
+  "name": "Fayer",
+  "description": "Easily kick-off page specific Javascript.",
+  "version": "1.0.4",
+  "authors": [
+    "Mr. Sandeep Jain <@sandeepjain>"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/sandeepjain/fayer.git"
+  },
+  "main": "fayer.ender.js",
+  "ender": "ender.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "engines": {
+    "node": "*"
+  },
+  "author": "Sandeep Jain (http://www.jsvrocks.com)"
+}
