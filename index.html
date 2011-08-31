@@ -4,38 +4,13 @@
   <meta charset='utf-8'>
 
   <title>sandeepjain/fayer @ GitHub</title>
-
-  <style type="text/css">
-    body {
-      margin-top: 1.0em;
-      background-color: #FFFFFF;
-      font-family: Helvetica, Arial, FreeSans, san-serif;
-      color: #000;
-    }
-    #container {
-      margin: 0 auto;
-      width: 700px;
-    }
-    h1 { font-size: 3.8em; color: #006600; margin-bottom: 3px; }
-    h1 .small { font-size: 0.4em; color: #AAAAAA }
-    h1 a { text-decoration: none; color: #006600 }
-    h1 .small a { color: #AAAAAA }
-    h2 { font-size: 1.5em; color: #444444; }
-    h3 { text-align: center; color: #444444; }
-    a { color: #000000; }
-    .description { font-size: 1.2em; margin-bottom: 30px; margin-top: 30px; font-style: italic;}
-    .download { float: right; }
-    pre { background: #000; color: #fff; padding: 15px;}
-    hr { border: 0; width: 80%; border-bottom: 1px solid #aaa}
-    .footer { text-align:center; padding-top:30px; font-style: italic; }
-  </style>
   <link rel="stylesheet" href="http://twitter.github.com/bootstrap/assets/css/bootstrap-1.1.1.min.css">
 </head>
 
 <body>
   <a href="http://github.com/sandeepjain/fayer"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
 
-  <div id="container">
+  <div class="container">
 
     <div class="download">
       <a href="http://github.com/sandeepjain/fayer/zipball/master">
@@ -44,15 +19,25 @@
         <img border="0" width="90" src="http://github.com/images/modules/download/tar.png"></a>
     </div>
 
-    <h1><a href="http://github.com/sandeepjain/fayer">fayer</a>
-      <span class="small">by <a href="http://github.com/sandeepjain">sandeepjain</a></span></h1>
+    <h1><a href="http://github.com/sandeepjain/fayer">Fayer</a>
+      <small>by <a href="http://github.com/sandeepjain">sandeepjain</a></small></h1>
 
-    <div class="description">
+    <p>
       Easily kick-off your page specific Javascript.
-    </div>
+    </p>
 
-    <h2>Dependencies</h2>
-<p>None.</p>
+    <h2>Fearures</h2>
+    <p>Purpose of this library is to help web developer put all JavaScript code in single file and then use 'fayer' to fire only required code (functions) on particular page.</p>
+    <ul>
+<li>Simple and easy to understand code, with small footprint (Just 0.94kb when minified).</li>
+<li>Doesn't require jQuery or any other JavaScript library (Framework agnostic)</li>
+<li>Makes it easy to push all JavaScript code in single file.</li>
+<li>Has <code>fayer.notOn</code> function to prevent code from being fired on few particular pages on website.</li>
+<li>Expose single global object <code>fayer</code>
+</li>
+<li>Can now be integrated with <a href="http://ender.no.de/">ender</a> using command <code>ender add Fayer</code>
+</li>
+</ul>
 <h2>License</h2>
 <p>Fayer is Dual licensed under the MIT or GPL Version 2 licenses. </p>
 <h2>Authors</h2>
