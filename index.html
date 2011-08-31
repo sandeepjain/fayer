@@ -92,12 +92,22 @@
 	}
 	
 	function hideShowSubMenu(ele) {
-		var status = ele.style.display;
+		var status = getStyle(ele,'display');
 		if (status == '' || status == 'block') {
 			ele.style.display = 'none';
 		} else {
 			ele.style.display = 'block';
 		}
+	}
+	
+	function getStyle(ele,styleProp)
+	{
+		var y;
+		if (ele.currentStyle)
+			y = x.currentStyle[styleProp];
+		else if (window.getComputedStyle)
+			y = document.defaultView.getComputedStyle(ele,null).getPropertyValue(styleProp);
+		return y;
 	}
 
 })(window, document)
