@@ -5,7 +5,9 @@
 	if(downloadMenu.addEventListener) {
 		downloadMenu.addEventListener( "click", handleMenuClick);
 	} else if (downloadMenu.attachEvent) {
-		downloadMenu.attachEvent('click', handleMenuClick);
+		downloadMenu.attachEvent('onclick', handleMenuClick);
+	} else {
+		downloadMenu.onclick = handleMenuClick;
 	}
 	
 	function handleMenuClick(event) {
