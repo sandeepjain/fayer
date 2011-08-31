@@ -7,19 +7,19 @@
   <link rel="stylesheet" href="http://twitter.github.com/bootstrap/assets/css/bootstrap-1.1.1.min.css">
 </head>
 
-<body>
+<body style="padding-top: 40px;">
   <a href="http://github.com/sandeepjain/fayer"><img style="position: absolute; top: 40px; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
     <div class="topbar">
       <div class="fill">
         <div class="container">
-          <h1><a href="#">Fayer</a> <small>by Sandeep Jain</small></h1>
+          <h3>Fayer</31>
           <ul>
             <li class="active"><a href="">Home</a></li>
           </ul>
           <ul class="nav secondary-nav">
             <li class="menu">
-              <a class="menu" href="#">Download</a>
-              <ul class="menu-dropdown">
+              <a id="downloadMenu" class="menu" href="#">Download</a>
+              <ul id="downloadSubMenu" class="menu-dropdown">
                 <li><a href="https://github.com/sandeepjain/fayer/blob/master/src/fayer.min.js">Production (fayer.min.js)</a></li>
                 <li><a href="https://raw.github.com/sandeepjain/fayer/master/src/fayer.js">Dev  (fayer.js)</a></li>
                 <li class="divider"></li>
@@ -31,15 +31,6 @@
       </div><!-- /fill -->
     </div><!-- /topbar -->
   <div class="container">
-
-    <!--<div class="download">
-      <a href="http://github.com/sandeepjain/fayer/zipball/master">
-        <img border="0" width="90" src="http://github.com/images/modules/download/zip.png"></a>
-      <a href="http://github.com/sandeepjain/fayer/tarball/master">
-        <img border="0" width="90" src="http://github.com/images/modules/download/tar.png"></a>
-    </div>-->
-
-
     <h1><a href="http://github.com/sandeepjain/fayer">Fayer</a>
       <small>by <a href="http://github.com/sandeepjain">sandeepjain</a></small></h1>
 
@@ -85,7 +76,28 @@
     </div>
 
   </div>
+<script>
+(function (win, doc, undefined) {
+	var downloadMenu = doc.getElementById('downloadMenu'),
+		downloadSubmenu = doc.getElementById('downloadSubMenu');
 
+	if(downloadMenu.addEventListener) {
+		downloadMenu.addEventListener( "click", function () {
+			hideShowSubMenu(downloadSubmenu);
+		}, false );
+	}
+	
+	function hideShowSubMenu(ele) {
+		var status = ele.style.display;
+		if (status == '' || status = 'block') {
+			ele.style.display = 'none';
+		} else {
+			ele.style.display = 'block';
+		}
+	}
+
+})(window, document)
+</script>
   
 </body>
 </html>
