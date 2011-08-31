@@ -15,7 +15,7 @@ Fayer is Dual licensed under the MIT or GPL Version 2 licenses.
 * Makes it easy to push all JavaScript code in single file.
 * Has `fayer.notOn` function to prevent code from being fired on few particular pages on website.
 * Expose single global object `fayer`
-* Can be integrated with [ender](http://ender.no.de/) using command `ender add Fayer`
+* Can now be integrated with [ender](http://ender.no.de/) using command `ender add Fayer`
 
 ## Getting Started with fayer
 
@@ -126,7 +126,7 @@ page (Array/String/RegExp): Unique page identifier.
 
 ### v1.0.4 · *2011-08-31*
 
-- Added ender integration code ([integration/ender](https://github.com/sandeepjain/fayer/integration/ender))
+- Added ender integration code (integration/ender)
 - Published to NPM as '[Fayer](http://search.npmjs.org/#/Fayer)'
 - Resolved bug: where string was improperly considered as Array and thus 'on' and 'notOn' functions failed.
 - Revised version numbers to 0.x to 1.0.x, as version number should always start from 1.
