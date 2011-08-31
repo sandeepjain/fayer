@@ -12,12 +12,14 @@
 	
 	function handleMenuClick(event) {
 		hideShowSubMenu(downloadSubmenu);
+		console.log('click');
 		event.preventDefault();
 		return false;
 	}
 	
 	function hideShowSubMenu(ele) {
 		var status = getStyle(ele,'display');
+		console.log('click ' + status);
 		if (status == '' || status == 'block') {
 			ele.style.display = 'none';
 		} else {
