@@ -4,7 +4,7 @@ Purpose of this library is to help web developer put all JavaScript code in sing
 
 * Sources: <http://github.com/sandeepjain/fayer>
 * Author: [Sandeep Jain](http://jsvrocks.com/) | Twitter : [@sandeepjain](http://twitter.com/#!/sandeepjain)
-* Size: 0.94kb (Minified version) | 0.48kb (gzipped)
+* Size: 0.94kb (Minified version) | 0.48kb (gzipped) | jQuery version: Just 0.8kb
 
 Fayer is Dual licensed under the MIT or GPL Version 2 licenses.  
 
@@ -15,7 +15,8 @@ Fayer is Dual licensed under the MIT or GPL Version 2 licenses.
 * Makes it easy to push all JavaScript code in single file.
 * Has `fayer.notOn` function to prevent code from being fired on few particular pages on website.
 * Expose single global object `fayer`
-* Can now be integrated with [ender](http://ender.no.de/) using command `ender add Fayer`
+* Use as jQuery plugin `$.fayer` (folder: integration/jQuery)
+* Integrat with [ender](http://ender.no.de/) using command `ender add Fayer` (folder: integration/ender)
 
 ## Getting Started with fayer
 
@@ -112,6 +113,14 @@ page (String): Unique page identifier.
 
 page (Array/String/RegExp): Unique page identifier. 
 
+## With jQuery
+
+You can even use `fayer` as jQuery plugin, find source under directory (integration/jQuery).
+
+With jQuery access `fayer` as `$.fayer` and hence functions as...
+
+`$.fayer.init, $.fayer.on, $.fayer.notOn, etc.`
+
 ##Contributor(s)
 
 * [Stephen](https://github.com/wyattdanger) - Mass assign function
@@ -123,6 +132,9 @@ page (Array/String/RegExp): Unique page identifier.
 * [DONE v1.0.4] Ender integration code.
 
 ## Changelog
+
+### v1.0.4 · *2011-09-05*
+- jQuery version of 'fayer' (integration/jQuery/jquery.fayer.js)
 
 ### v1.0.4 · *2011-08-31*
 
