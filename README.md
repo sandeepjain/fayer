@@ -16,7 +16,7 @@ Fayer is Dual licensed under the MIT or GPL Version 2 licenses.
 * Has `fayer.notOn` function to prevent code from being fired on few particular pages on website.
 * Expose single global object `fayer`
 * Use as jQuery plugin `$.fayer` (folder: integration/jQuery)
-* Integrat with [ender](http://ender.no.de/) using command `ender add Fayer` (folder: integration/ender)
+* Integrate with [ender](http://ender.no.de/) using command `ender add Fayer` (folder: integration/ender)
 
 ## Getting Started with fayer
 
