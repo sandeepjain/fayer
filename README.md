@@ -121,9 +121,15 @@ With jQuery access `fayer` as `$.fayer` and hence functions as...
 
 `$.fayer.init, $.fayer.on, $.fayer.notOn, etc.`
 
+## Please Note (by [runeh](https://github.com/runeh))
+
+* Fayer calls the functions immediately when matching, and in the same order as they are referenced in app code. (As opposed to libs that add functions to a registry and then dispatch them later)
+* Fayer does not deal with onload/domready. It's the responsibility of the app code.
+
 ##Contributor(s)
 
 * [Stephen](https://github.com/wyattdanger) - Mass assign function
+* [runeh](https://github.com/runeh)
 
 ## Todo
 
