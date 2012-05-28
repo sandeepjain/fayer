@@ -1,4 +1,4 @@
-# Fayer ![project status](http://stillmaintained.com/sandeepjain/fayer.png) 
+# Fayer
 
 Purpose of this library is to help web developer put all JavaScript code in single file and then use 'fayer' to fire only required code (functions) on particular page.
 
